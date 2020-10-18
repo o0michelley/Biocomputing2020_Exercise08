@@ -1,3 +1,5 @@
+# ex8 part 1
+
 scores <- read.csv("UWvMSU_1-22-13.txt", sep="", stringsAsFactors = FALSE)
 
 # create variables
@@ -35,3 +37,27 @@ abline(v=1:length(MSUcumsum),col="light grey")
 abline(h=1:max(MSUcumsum),col="light grey")
 points(x=1:length(UWcumsum),y=UWcumsum,col="red",pch=18)
 points(x=1:length(MSUcumsum),y=MSUcumsum,col="forest green",pch=20)
+
+
+# ex8 part 2
+
+# create vector 1 through 100
+gameset <- c(1:100)
+
+# ask R to randomly select a number from set
+randomnumb <- sample(game,size=1)
+
+# ask R to read user input
+guess <- readline(prompt="Guess: ")
+
+# create if else statement
+if (guess==randomnumb){
+  print("correct!")
+} else if (guess>randomnumb){
+  print("lower")
+  guess <- readline(prompt="Guess: ")
+} else {
+  print("higher")
+  guess <- readline(prompt="Guess: ")
+}
+
