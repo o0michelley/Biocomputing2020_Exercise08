@@ -45,10 +45,13 @@ points(x=1:length(MSUcumsum),y=MSUcumsum,col="forest green",pch=20)
 gameset <- c(1:100)
 
 # ask R to randomly select a number from set
-randomnumb <- sample(game,size=1)
+randomnumb <- sample(gameset,size=1)
+
+# assign a variable
+guess <- 0
 
 # ask R to read user input
-guess <- readline(prompt="Guess: ")
+guess <- readline(prompt="Guess a number between 1 and 100: ")
 
 # create if else statement
 if (guess==randomnumb){
@@ -56,8 +59,19 @@ if (guess==randomnumb){
 } else if (guess>randomnumb){
   print("lower")
   guess <- readline(prompt="Guess: ")
-} else {
+} else if (guess<randomnumb){
   print("higher")
   guess <- readline(prompt="Guess: ")
 }
 
+while (guess !=randomnumb){
+ if (guess>randomnumb){
+    print("lower")
+    guess <- readline(prompt="Guess: ")
+  } else if (guess<randomnumb){
+    print("higher")
+    guess <- readline(prompt="Guess: ")
+  } else {
+    print("correct!")
+  }
+}
