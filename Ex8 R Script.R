@@ -27,3 +27,11 @@ for (i in 1:nrow(scores)){
 # create vector with cumulative sums
 UWcumsum <- cumsum(UWlist)
 MSUcumsum <- cumsum(MSUlist)
+
+# create plot of cumulative sums
+plot(x=1:length(UWcumsum),y=UWcumsum,type="l",xlab="time",ylab="score",col="red")
+lines(x=1:length(MSUcumsum),y=MSUcumsum,col="forest green")
+abline(v=1:length(MSUcumsum),col="light grey")
+abline(h=1:max(MSUcumsum),col="light grey")
+points(x=1:length(UWcumsum),y=UWcumsum,col="red",pch=18)
+points(x=1:length(MSUcumsum),y=MSUcumsum,col="forest green",pch=20)
