@@ -51,7 +51,7 @@ randomnumb <- sample(gameset,size=1)
 guess <- 0
 
 # ask R to read user input
-guess <- readline(prompt="Guess a number between 1 and 100: ")
+guess <- as.numeric(readline(prompt="Guess a number between 1 and 100: "))
 
 # create if else statement
 if (guess==randomnumb){
@@ -64,6 +64,7 @@ if (guess==randomnumb){
   guess <- readline(prompt="Guess: ")
 }
 
+# create while statement
 while (guess !=randomnumb){
  if (guess>randomnumb){
     print("lower")
@@ -71,7 +72,34 @@ while (guess !=randomnumb){
   } else if (guess<randomnumb){
     print("higher")
     guess <- readline(prompt="Guess: ")
-  } else {
+  }
+}
+
+if (guess==randomnumb){
+  print("correct!")
+}
+
+# put everything into a function to run smoothly 
+##### start run from here!
+
+game <- function(){
+  gameset <- c(1:100)
+  randomnumb <- sample(gameset,size=1)
+  guess <- 0
+  guess <- as.numeric(readline(prompt="Guess a number between 1 and 100: "))
+  while (guess !=randomnumb){
+    if (guess>randomnumb){
+      print("lower")
+      guess <- readline(prompt="Guess: ")
+    } else if (guess<randomnumb){
+      print("higher")
+      guess <- readline(prompt="Guess: ")
+    }
+  }
+  if (guess==randomnumb){
     print("correct!")
   }
 }
+
+# run the game
+game()
